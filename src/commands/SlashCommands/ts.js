@@ -4,7 +4,7 @@ const config = require("../../../CONFIGS/config.json")
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName("ts")
+    .setName("setup")
 	.setDescription("Mit diesen Befehl kannst du das Ticket System einstellen!")
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
 	.addChannelOption(option => option.setName("kanal").setDescription("Gebe einen Kanal an in diesen man Tickets erstellen soll!").setRequired(true))
@@ -83,23 +83,59 @@ module.exports = {
         }
  
         const CreateButton = new ActionRowBuilder()
-            .addComponents(
-                new ButtonBuilder()
-                    .setCustomId(`ticket-setup-${interaction.guild.id}-${category.id}`)
-                    .setLabel("Ticket Erstellen")
-                    .setEmoji("🎫")
-                    .setStyle(ButtonStyle.Danger),
-            );
+        .addComponents(
+            new ButtonBuilder()
+                .setCustomId(`ticket-hbi-${interaction.guild.id}-${category.id}`)
+                .setLabel("Hilfe bei Einrichtung")
+                .setEmoji("🆘")
+                .setStyle(ButtonStyle.Primary),
+        )
+        .addComponents(
+            new ButtonBuilder()
+                .setCustomId(`ticket-ab-${interaction.guild.id}-${category.id}`)
+                .setLabel("Anfrage/Beratung")
+                .setEmoji("🖥️")
+                .setStyle(ButtonStyle.Primary),
+        )
+        .addComponents(
+            new ButtonBuilder()
+                .setCustomId(`ticket-stoerung-${interaction.guild.id}-${category.id}`)
+                .setLabel("Störung")
+                .setEmoji("❌")
+                .setStyle(ButtonStyle.Primary),
+        );
 
-        const IMG = new AttachmentBuilder()
-            .setFile("assets/create_ticket.png")
+        const CreateButton0 = new ActionRowBuilder()
+        .addComponents(
+            new ButtonBuilder()
+                .setCustomId(`ticket-dba-${interaction.guild.id}-${category.id}`)
+                .setLabel("Discord Bot Anfrage")
+                .setEmoji("🤖")
+                .setStyle(ButtonStyle.Secondary),
+        )
+        .addComponents(
+            new ButtonBuilder()
+                .setCustomId(`ticket-sonstiges-${interaction.guild.id}-${category.id}`)
+                .setLabel("Sonstiges")
+                .setEmoji("🎟️")
+                .setStyle(ButtonStyle.Primary),
+        );
 
-            const ticketCreated = new EmbedBuilder()
-            .setAuthor({ name: embed_author_text, iconURL: embed_author_icon })
-            .setDescription(`Die Create-Ticket Nachricht wurde erfolgreich erstellt, siehe in ${channel}.`)
-            .setTimestamp()
-            .setFooter({ text: embed_footer_text, iconURL: embed_footer_icon })
-            .setColor(embed_color)
+        const CreateIMG = new AttachmentBuilder()
+        .setFile("assets/create_ticket.png")
+
+        const CustomerNrIMG = new AttachmentBuilder()
+        .setFile("assets/customernr.png")
+
+        const ProduktNrIMG = new AttachmentBuilder()
+        .setFile("assets/produktnr.png")
+
+        const ticketCreated = new EmbedBuilder()
+        .setAuthor({ name: embed_author_text, iconURL: embed_author_icon })
+        .setDescription(`Die Create-Ticket Nachricht wurde erfolgreich erstellt, siehe in ${channel}.`)
+        .setTimestamp()
+        .setFooter({ text: embed_footer_text, iconURL: embed_footer_icon })
+        .setColor(embed_color)
 
         await interaction.reply({
             embeds: [ticketCreated],
@@ -107,8 +143,23 @@ module.exports = {
         })
 
         channel.send({
-            components: [CreateButton],
-            files: [IMG]
+            files: [CreateIMG],
+            components: [CreateButton,CreateButton0],
         })
+
+        setTimeout(async () => {
+            await channel.send({
+                content: "## Bei Störungen überprüfen Sie bitte unsere [Status Webseite](https://status.synhost.de/status/synhost)!\n## Partnerschaftsanfragen werden nur via [Web-Ticket](https://synhost.de/account/tickets) bearbeitet!"
+            })
+            await channel.send({
+                content: "### Ihre Kunden Nr. finden Sie in Ihrer [Account Übersicht](https://synhost.de/account)! Im Bild Gelb markiert!",
+                files: [CustomerNrIMG]
+            })
+            await channel.send({
+                content: "### Ihre Produkt Nr. finden Sie in Ihrer [Produkt Übersicht](https://synhost.de/account/products)! Im Bild Gelb markiert!",
+                files: [ProduktNrIMG]
+            })
+        }, 1000)
+
     }
 }

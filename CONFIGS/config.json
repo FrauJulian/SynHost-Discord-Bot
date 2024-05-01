@@ -1,6 +1,7 @@
 {
   "generell": {
     "bot_token": "",
+    "bot_id": "",
 
     "err_embed": {
       "embed_author_text": "SynHost.de | ERROR",
@@ -15,7 +16,7 @@
     "join_messages_channel": "",
     "join_role_id": "",
 
-    "embed_author_text": "SynHost.de | WELCOME",
+    "embed_author_text": "SynHost.de | WILLKOMMEN",
     "embed_author_icon": "https://media.discordapp.net/attachments/1170393889484574750/1170661242923393034/DC.gif?ex=6559da3e&is=6547653e&hm=673832e813ea6160ce8ecab79bbd3334d893d32d1e3382689fa916674b760b22&=",
     "embed_description": "## %player%,\n\n%message%",
     "embed_thumpnail": "%avatar%",
@@ -25,14 +26,17 @@
   },
   "ticket_system": {
     "support_role": "",
-    "ticket_categorie": "",
+    "admin_role": "",
+    "member_role": "",
     "transcripts": "",
+    "ticket_categorie": "",
+    "serverid_bot": "",
+    "serverid_web": "",
     "support_channel_1": "",
     "support_channel_2": "",
     "support_role_1": "",
     "support_role_2": "",
     "support_warteraum": "",
-    "team_chat": "a",
 
     "embeds_theme": {
       "embed_author_text": "SynHost.de | SUPPORT",

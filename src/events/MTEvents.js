@@ -1,8 +1,9 @@
-const { ActionRowBuilder, EmbedBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { ActionRowBuilder, EmbedBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, ButtonBuilder, ButtonStyle, AttachmentBuilder } = require('discord.js');
 const discordTranscripts = require('discord-html-transcripts');
 const client = require("../../index");
 const config = require("../../CONFIGS/config.json");
 const moment = require("moment");
+const fs = require('fs');
 
 module.exports = {
     name: "ManageTickets"
@@ -20,79 +21,111 @@ client.on("interactionCreate", async (interaction) => {
             //Add User 1
             if (interaction.customId === "ticket-adduser-modal") {
                 const channel = interaction.guild.channels.cache.get(`${interaction.channel.id}`);
-                const username = interaction.fields.getTextInputValue('ticket-adduser-0');
-                const userB = interaction.guild.members.search({ query: username });
+                const user = interaction.fields.getTextInputValue('ticket-adduser-0');
 
-                userB.then(async (Collection) => {
-                    const UserID = Collection.find(Collection.values("user"));
-
-                    console.log(SUserID);
-                })
-
-                /*try {
-                    const userB = interaction.guild.members.search({ query: username });
-
-                    userB.then(async (UserID) => {
-                        var user = UserID;
-
-                        console.log(user);
-
-                        await channel.edit({
-                            permissionOverwrites: [
-                                {
-                                   id: user,
-                                   allow: ['SendMessages', 'ViewChannel'],
-                               }
-                           ],
+                try {
+                    await channel.edit({
+                        permissionOverwrites: [
+                            {
+                                id: user,
+                                allow: ['SendMessages', 'ViewChannel'],
+                            },
+                            {
+                                id: interaction.guild.roles.everyone,
+                                deny: ['ViewChannel'],
+                            },
+                            {
+                                id: config.generell.bot_id,
+                                allow: ['ManageChannels']
+                            },
+                            {
+                                id: config.ticket_system.support_role,
+                                allow: ['SendMessages', 'ViewChannel']
+                            }
+                        ],
                        }).then(async => {
-                           const AddedUser = new EmbedBuilder()
-                           .setAuthor({ name: embed_author_text, iconURL: embed_author_icon })
-                           .setDescription(`### <@`+ user +`> wurde zum Ticket hinzugefügt!`)
-                           .setTimestamp()
-                           .setFooter({ text: embed_footer_text, iconURL: embed_footer_icon })
-                           .setColor(embed_color)
-                           interaction.reply({
-                               embeds: [AddedUser]
-                           });
-                       })
+                        const AddedUser = new EmbedBuilder()
+                        .setAuthor({ name: embed_author_text, iconURL: embed_author_icon })
+                        .setDescription(`### <@`+ user +`> wurde zum Ticket hinzugefügt!`)
+                        .setTimestamp()
+                        .setFooter({ text: embed_footer_text, iconURL: embed_footer_icon })
+                        .setColor(embed_color)
+                        interaction.channel.send({
+                           embeds: [AddedUser]
+                        });
                     })
                 } catch (err) {
+                    console.log(err);
                     const AddedUser = new EmbedBuilder()
                     .setAuthor({ name: embed_author_text, iconURL: embed_author_icon })
-                    .setDescription("### Es wurde kein Nutzer mit dem Nutzernamen " + username + " gefunden!")
+                    .setDescription("### Es wurde niemand mit der ID " + user + " gefunden!")
                     .setTimestamp()
                     .setFooter({ text: embed_footer_text, iconURL: embed_footer_icon })
                     .setColor(embed_color)
                     interaction.reply({ embeds: [AddedUser], ephemeral: true });
-                }*/
+                }
             }
-            //Assign 0
-            if (interaction.customId === "ticket-assign-modal") {
-                const assignguy = interaction.fields.getTextInputValue('ticket-assign-0');
-            
+            //Rem User 1
+            if (interaction.customId === "ticket-remuser-modal") {
                 const channel = interaction.guild.channels.cache.get(`${interaction.channel.id}`);
-                const channelN = channel.name;
-
-                const modifiedName = channelN.replace("-", " ");
-
-                let userName = modifiedName.split(4);
-                let newChannelName = "c-" + assignguy + "-u-" + userName;
-
-                console.log(newChannelName);
+                const user = interaction.fields.getTextInputValue('ticket-remuser-0');
 
                 try {
-                    channel.setName(newChannelName);
-
-                    const AssignedEmbed = new EmbedBuilder()
+                    await channel.edit({
+                        permissionOverwrites: [
+                            {
+                                id: user,
+                                deny: ['SendMessages', 'ViewChannel'],
+                            },
+                            {
+                                id: interaction.guild.roles.everyone,
+                                deny: ['ViewChannel'],
+                            },
+                            {
+                                id: config.generell.bot_id,
+                                allow: ['ManageChannels']
+                            },
+                            {
+                                id: config.ticket_system.support_role,
+                                allow: ['SendMessages', 'ViewChannel']
+                            }
+                        ],
+                       }).then(async => {
+                        const RemUserE = new EmbedBuilder()
+                        .setAuthor({ name: embed_author_text, iconURL: embed_author_icon })
+                        .setDescription(`### <@`+ user +`> wurde entfernt!`)
+                        .setTimestamp()
+                        .setFooter({ text: embed_footer_text, iconURL: embed_footer_icon })
+                        .setColor(embed_color)
+                        interaction.reply({
+                           embeds: [RemUserE]
+                        });
+                    })
+                } catch (err) {
+                    console.log();
+                    const AddedUser = new EmbedBuilder()
                     .setAuthor({ name: embed_author_text, iconURL: embed_author_icon })
-                    .setDescription("### Das Ticket wurde an @" + assignguy + " übergeben!")
+                    .setDescription("### Es wurde niemand mit der ID " + user + " gefunden!")
                     .setTimestamp()
                     .setFooter({ text: embed_footer_text, iconURL: embed_footer_icon })
                     .setColor(embed_color)
-                    interaction.reply({ embeds: [AssignedEmbed], ephemeral: true })
-                } catch (err) {
-                    console.log(err);
+                    interaction.channel.send({ embeds: [AddedUser], ephemeral: true });
                 }
+            }
+            //Assign 0
+            if (interaction.customId === "ticket-assign-modal") {
+                const user = interaction.fields.getTextInputValue('ticket-assign-0');
+                const channel = interaction.guild.channels.cache.get(`${interaction.channel.id}`);
+
+                channel.setName("c-" + user);
+
+                const AssignedEmbed = new EmbedBuilder()
+                .setAuthor({ name: embed_author_text, iconURL: embed_author_icon })
+                .setDescription("### Das Ticket wurde an " + user + " übergeben!")
+                .setTimestamp()
+                .setFooter({ text: embed_footer_text, iconURL: embed_footer_icon })
+                .setColor(embed_color)
+                interaction.channel.send({ embeds: [AssignedEmbed] })
             }
             //Psychiater
             if (interaction.customId === "ticket-psyco-modal") {
@@ -114,16 +147,94 @@ client.on("interactionCreate", async (interaction) => {
         }
 
         if(interaction.isButton()) {
+            //Close
+            if (interaction.customId.startsWith(`ticket-close`)) {
+
+                const LogEmbed = new EmbedBuilder()
+                .setAuthor({ name: embed_author_text, iconURL: embed_author_icon })
+                .setDescription("### Das Ticket `" + interaction.channel.name + "` wurde von `" + interaction.user.username + "` gelöscht!\n\n**Transcript:**\nhttps://log.fraujulian.xyz/transcript" + interaction.channel.id + ".html")
+                .setTimestamp()
+                .setFooter({ text: embed_footer_text, iconURL: embed_footer_icon })
+                .setColor(embed_color)
+
+                const DeleteEmbed = new EmbedBuilder()
+                .setAuthor({ name: embed_author_text, iconURL: embed_author_icon })
+                .setDescription("### Das Ticket wurde von `" + interaction.user.username + "` geschlossen!\n> Das Ticket wird in 5 Minuten gelöscht!")
+                .setTimestamp()
+                .setFooter({ text: embed_footer_text, iconURL: embed_footer_icon })
+                .setColor(embed_color)
+
+                const TicketChannel = interaction.guild.channels.cache.get(`${interaction.channel.id}`)
+
+                const LogString = await discordTranscripts.createTranscript(TicketChannel, {
+                    limit: -1,
+                    returnType: 'string',
+                    filename: "transcript" + interaction.channel.id + ".html",
+                    saveImages: true,
+                    poweredBy: false
+                });
+
+                fs.writeFile("./transcripts/transcript" + interaction.channel.id + ".html", LogString, function (err) {
+                    if (err) throw err;
+                });
+
+                const LogChannel = interaction.guild.channels.cache.find(ch => ch.id === config.ticket_system.transcripts);
+                
+                setTimeout(async () => {
+                    const LogFile = new AttachmentBuilder()
+                    .setFile("transcripts/transcript" + interaction.channel.id + ".html/")
+
+                    LogChannel.send({ embeds: [LogEmbed], files: [LogFile] })
+                    interaction.reply({ embeds: [DeleteEmbed] })
+                    interaction.channel.send({ content: "|| <@" + config.ticket_system.member_role + "> || :heart:\n\nBewerten Sie uns gerne in <#1170807016567078945>, auf [Trustpilot](https://de.trustpilot.com/evaluate/synergy-solution.de) oder auf [Google](https://g.page/r/CTzKF9Xwbq8IEB0/review)." })
+
+                    await TicketChannel.edit({
+                        name: `closed-ticket`,
+                    })
+                        
+                    const { exec } = require("child_process");
+
+                    exec("mv /var/lib/pufferpanel/servers/"+config.ticket_system.serverid_bot+"/transcripts/transcript" + interaction.channel.id + ".html /var/lib/pufferpanel/servers/"+config.ticket_system.serverid_web+"", (error, stdout, stderr) => {
+                        if (error) {
+                            console.log(err);
+                            return true;
+                        }
+                        if (stderr) {
+                            return true;
+                        }
+                    });
+                }, 1500);
+
+                setTimeout(() => {
+                    TicketChannel.delete();
+                }, 300000);
+            }
+            //Unclaim
+            if (interaction.customId === "ticket-unclaim") {
+                const channel = interaction.guild.channels.cache.get(`${interaction.channel.id}`);
+
+                try {
+                    channel.setName("ticket");
+
+                    const AssignedEmbed = new EmbedBuilder()
+                    .setAuthor({ name: embed_author_text, iconURL: embed_author_icon })
+                    .setDescription("### Das Ticket wurde entclaimed!")
+                    .setTimestamp()
+                    .setFooter({ text: embed_footer_text, iconURL: embed_footer_icon })
+                    .setColor(embed_color)
+                    interaction.reply({ embeds: [AssignedEmbed] })
+                } catch (err) {
+                    console.log(err);
+                }
+            }
             //Claim
             if (interaction.customId.startsWith(`ticket-claim`)) {
-                await interaction.deferUpdate()
-
                 const channel = interaction.guild.channels.cache.get(`${interaction.channel.id}`);
                 const channelNB = channel.name;
 
                 if (channelNB.includes("c-")) {return;}
 
-                let channelN = "c-" + interaction.user.username + "-u-" + channel.name;
+                let channelN = "c-" + interaction.user.username;
 
                 await channel.setName(channelN);
                 
@@ -133,7 +244,7 @@ client.on("interactionCreate", async (interaction) => {
                 .setTimestamp()
                 .setFooter({ text: embed_footer_text, iconURL: embed_footer_icon })
                 .setColor(embed_color)
-                channel.send({ embeds: [ClaimEmbed] })
+                interaction.reply({ embeds: [ClaimEmbed] })
             }  
             //Add User 0
             if (interaction.customId === "ticket-adduser") {
@@ -145,11 +256,29 @@ client.on("interactionCreate", async (interaction) => {
                const AddUsername = new TextInputBuilder()
                     .setCustomId(`ticket-adduser-0`)
                     .setLabel("Username")
-                    .setPlaceholder("Gebe den Discord Nutzernamen an!")
+                    .setPlaceholder("Gebe die DISCORD ID an!")
                     .setStyle(TextInputStyle.Short)
                     .setMaxLength(100);
 
                 const UserNameInput = new ActionRowBuilder().addComponents(AddUsername);
+                UserModal.addComponents(UserNameInput);
+                interaction.showModal(UserModal);
+            }
+            //Add User 0
+            if (interaction.customId === "ticket-remuser") {
+
+               const UserModal = new ModalBuilder()
+                .setCustomId(`ticket-remuser-modal`)
+                .setTitle(`SynHost.de Support`);
+
+               const RemUser = new TextInputBuilder()
+                    .setCustomId(`ticket-remuser-0`)
+                    .setLabel("Username")
+                    .setPlaceholder("Gebe die DISCORD ID an!")
+                    .setStyle(TextInputStyle.Short)
+                    .setMaxLength(100);
+
+                const UserNameInput = new ActionRowBuilder().addComponents(RemUser);
                 UserModal.addComponents(UserNameInput);
                 interaction.showModal(UserModal);
             }
@@ -233,7 +362,7 @@ client.on("interactionCreate", async (interaction) => {
                const AddUsername = new TextInputBuilder()
                     .setCustomId(`ticket-assign-0`)
                     .setLabel("Username")
-                    .setPlaceholder("Gib den Username deines Kollegen an!")
+                    .setPlaceholder("Gib den Nutzernamen deines Kollegen an!")
                     .setStyle(TextInputStyle.Short)
 
                 const UserNameInput = new ActionRowBuilder().addComponents(AddUsername);

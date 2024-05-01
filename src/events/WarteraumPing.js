@@ -7,7 +7,7 @@ module.exports = {
   once: false,
   execute: async (oldState, newState) => {
     if (newState.channelId == config.ticket_system.support_warteraum) {
-      const TeamChat = newState.guild.channels.cache.get(config.ticket_system.team_chat);
+      const TeamChat = newState.guild.channels.cache.get(config.ticket_system.transcripts);
       const UserID = newState.id;
 
       let embed_author_text = config.ticket_system.embeds_theme.embed_author_text;

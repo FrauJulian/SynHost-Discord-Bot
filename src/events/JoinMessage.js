@@ -17,22 +17,22 @@ module.exports = {
         member.roles.add(role);
             
         var messages = [
-            "Ich hoffe, du bist auf dem Weg nicht über das WLAN-KABEL gestolpert!",
-            "Hat es durch die Sicherheitskontrolle geschafft!",
-            "Hat die Server von SynHost entdeckt!",
-            "Belegt gleich einen neuen Port im Netzwerkschrank!",
-            "Willkommen! Dein Server ist heißer als ein CPU-Kern im Turbo-Modus.",
-            "Hallo da! Dein Server ist nun online - bereit für digitale Abenteuer.",
-            "Grüß Gott! Dein Server hat VIP-Zugang zur Datenautobahn erhalten.",
-            "Aloha! Dein Server ist nun da, um die Bits zu rocken.",
-            "Hi! Dein Server ist jetzt live - lass die Datenparty beginnen!",
-            "Guten Tag! Dein Server ist bereit für High-Performance-Hosting-Action.",
-            "Ciao! Dein Server ist nun Teil der Hosting-Elite.",
-            "Hola! Dein Server ist jetzt online, bereit für digitale Großtaten.",
-            "Bonjour! Dein Server ist da, um Hosting-Magie zu verbreiten.",
-            "Servus! Dein Server ist bereit für atemberaubende Hosting-Leistung.",
-            "Salut! Dein Server ist nun Teil der Hosting-Rockstars.",
-            "Privet! Dein Server ist jetzt aktiviert, um Hosting-Grenzen zu sprengen."
+            "willkommen in der Welt von SynHost. Dein Server wartet bereits auf dich!",
+            "du hast es durch die Firewall geschafft. Wir sehen uns ONLINE!",
+            "hat die Server von SynHost entdeckt!",
+            "belegt gleich einen neuen Port im Netzwerkschrank!",
+            "wir mussten feststellen, dein Server ist heißer als ein CPU-Kern im Turbo-Modus!",
+            "du siehst aus, als könntest du ein neuer Kunde sein!",
+            "dein Server hat VIP-Zugang zur Datenautobahn erhalten.",
+            "010101010101, hoplla. Ich meinte Hallo!",
+            "du bist absolut FAST LIKE A BOLT!",
+            "dein Server ist bereit für High-Performance-Hosting-Action!",
+            "willkommen bei SynHost. Wir sind dein Anbieter für hochqualitative Server und das auf 100% Prepaidbasis!",
+            "ist auf dem Weg fast fast über das WLAN-KABEL gestolpert!",
+            "dein Server ist da, um Hosting-Magie zu verbreiten!",
+            "dein Server ist bereit für atemberaubende Hosting-Leistung!",
+            "dein Server ist nun Teil der Hosting-Rockstars.",
+            "kam mit 10-Gbit/s durchgeschossen auf den Discord!"
         ];
 
         const rmsg = messages[Math.floor(Math.random() * messages.length)];

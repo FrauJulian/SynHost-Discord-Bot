@@ -54,12 +54,6 @@ module.exports = {
           .setLabel("Close")
           .setEmoji("🛡️")
           .setStyle(ButtonStyle.Danger);
-  
-          const InstantClose = new ButtonBuilder()
-          .setCustomId("ticket-instantclose")
-          .setLabel("Instant Close")
-          .setEmoji("🛡️")
-          .setStyle(ButtonStyle.Danger);
 
           const Psychiater = new ButtonBuilder()
           .setCustomId("ticket-psychiater")
@@ -74,7 +68,7 @@ module.exports = {
           .addComponents(AddUser, RemUser);
 
           const ButtonsClo = new ActionRowBuilder()
-          .addComponents(Close, InstantClose);
+          .addComponents(Close);
 
           const PsychiaterRow = new ActionRowBuilder()
           .addComponents(Psychiater);
@@ -103,12 +97,12 @@ module.exports = {
           interaction.reply({ embeds: [WrongChannel], ephemeral: true})
         }
       } catch (err) {
-        let embed_author_text = config.err_message.embed_author_text;
-        let embed_author_icon = config.err_message.embed_author_icon;
-        let embed_description = config.err_message.embed_description.replace("%err%", "" + err + "");
-        let embed_footer_text = config.err_message.embed_footer_text;
-        let embed_footer_icon = config.err_message.embed_footer_icon;
-        let embed_color = config.err_message.embed_color;
+        let embed_author_text = config.generell.err_embed.embed_author_text;
+        let embed_author_icon = config.generell.err_embed.embed_author_icon;
+        let embed_description = config.generell.err_embed.embed_description.replace("%err%", "" + err + "");
+        let embed_footer_text = config.generell.err_embed.embed_footer_text;
+        let embed_footer_icon = config.generell.err_embed.embed_footer_icon;
+        let embed_color = config.generell.err_embed.embed_color;
 
         const ErrEmbed = new EmbedBuilder()
         .setAuthor({ name: embed_author_text, iconURL: embed_author_icon })

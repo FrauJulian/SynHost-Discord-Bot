@@ -68,7 +68,7 @@ const {
     }
   });
   
-  process.on("unhandledRejection", (err) => {
+  /*process.on("unhandledRejection", (err) => {
     console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] Ein Fehler ist aufgetreten: ` + err);
   });
   
@@ -78,6 +78,6 @@ const {
   
   process.on("uncaughtExceptionMonitor", (err) => {
     console.log(`[${moment().format("DD-MM-YYYY HH:mm:ss")}] Ein Fehler ist aufgetreten: ` + err);
-  });
+  });*/
   
   client.login(token);
