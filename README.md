@@ -2,7 +2,7 @@
 
 <br>
 
-**This System is coded and used for the hosting service SynHost!**
+**This System is coded and used for the hosting service, SynHost!**
 
 <br>
 
