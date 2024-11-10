@@ -1,6 +1,6 @@
 # 🖥️ Discord SynHost.de System  
   
-**Discord System for GERLACH SYSTEMS | SynHost.de**
+**Discord System for SynHost!**
 
 ## 👀 Features
 - Join Message & Role
