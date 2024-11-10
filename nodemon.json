@@ -1,0 +1,7 @@
+{
+    "watch":  [
+        "*.*"
+    ],
+    "ext": "js,json",
+    "exec": "node --trace-warnings ./Index.js"
+}
