@@ -10,13 +10,10 @@ const DatabaseConnection = mysql.createConnection({
     password: MainConfiguration.database_data.password,
     database: MainConfiguration.database_data.database,
 
-    waitForConnections: true,
+    waitForConnections: false,
+    enableKeepAlive: true,
     connectionLimit: 10,
-    queueLimit: 0,
-    connectTimeout: 10000,
-    multipleStatements: false,
-    debug: false,
-    charset: 'utf8mb4',
+    queueLimit: 0
 })
 
 async function RunSQL(commandString, interaction = null) {
