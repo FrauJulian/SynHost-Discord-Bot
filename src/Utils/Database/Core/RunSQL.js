@@ -3,7 +3,7 @@ const mysql = require("mysql2");
 
 const MainConfiguration = require("../../../Configurations/Main.json")
 
-const DatabaseConnection = mysql.createConnection({
+const DatabaseConnection = mysql.createPool({
     host: MainConfiguration.database_data.host,
     port: MainConfiguration.database_data.port,
     user: MainConfiguration.database_data.user,
@@ -11,7 +11,8 @@ const DatabaseConnection = mysql.createConnection({
     database: MainConfiguration.database_data.database,
 
     waitForConnections: false,
-    enableKeepAlive: true,
+    enableKeepAlive: false,
+    connectTimeout: 3000,
     connectionLimit: 10,
     queueLimit: 0
 })
