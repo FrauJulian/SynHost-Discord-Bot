@@ -2,7 +2,7 @@ const { EmbedBuilder, PermissionFlagsBits } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const ms = require("ms");
 
-const GiveawayConfiguration = require("../Configurations/Giveaway.json");
+const GiveawayConfiguration = require("../../Configurations/Giveaway.json");
 const ERR = require("../../Utils/Console/Error");
 
 module.exports = {
