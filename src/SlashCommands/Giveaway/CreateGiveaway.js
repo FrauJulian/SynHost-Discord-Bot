@@ -45,7 +45,7 @@ module.exports = {
                 }
             })
 
-            await interaction.deferUpdate();
+            await interaction.reply({content:"## TICKET WURDE GESTARTET", ephemeral: true});
         } catch (err) {
             ERR(err, interaction)
         }
