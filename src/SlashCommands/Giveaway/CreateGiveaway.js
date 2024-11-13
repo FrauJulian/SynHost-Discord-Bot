@@ -7,7 +7,7 @@ const ERR = require("../../Utils/Console/Error");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("giveaway")
+        .setName("giveaway-create")
         .setDescription("🎉 | Erstelle ein Giveaway für deine Community!")
         .addStringOption(option => option.setName("runtime").setDescription("Setzte die Laufzeit des Giveaways!").setRequired(true))
         .addIntegerOption(option => option.setName("winners").setDescription("Setzte die Anzahl der möglichen Gewinner!").setRequired(true))
