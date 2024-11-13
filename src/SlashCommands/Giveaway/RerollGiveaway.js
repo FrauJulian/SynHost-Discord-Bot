@@ -2,14 +2,14 @@ const { EmbedBuilder, PermissionFlagsBits } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const ms = require("ms");
 
-const GiveawayConfiguration = require("../Configurations/Giveaway.json");
+const GiveawayConfiguration = require("../../Configurations/Giveaway.json");
 const ERR = require("../../Utils/Console/Error");
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("giveaway-reroll")
         .setDescription("🎉 | Lose das Giveaway neu aus!")
-        .addIntegerOption(option => option.setName("id").setDescription("Setzte die ID des Giveaways ein! - Message ID").setRequired(true))
+        .addStringOption(option => option.setName("id").setDescription("Setzte die ID des Giveaways ein! - Message ID").setRequired(true))
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     run: async (client, interaction) => {
         try {
