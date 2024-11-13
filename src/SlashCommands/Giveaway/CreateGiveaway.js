@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const ms = require("ms");
 
 const GiveawayConfiguration = require("../Configurations/Giveaway.json");
-const ERR = require("../Utils/Console/Error");
+const ERR = require("../../Utils/Console/Error");
 
 module.exports = {
     data: new SlashCommandBuilder()
