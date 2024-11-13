@@ -1,15 +1,13 @@
 const { EmbedBuilder, PermissionFlagsBits } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const ms = require("ms");
 
-const GiveawayConfiguration = require("../Configurations/Giveaway.json");
 const ERR = require("../../Utils/Console/Error");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("giveaway")
-        .setDescription("🎉 | Erstelle ein Giveaway für deine Community!")
-        .addIntegerOption(option => option.setName("id").setDescription("Setzte die ID des Giveaways ein! - Message ID").setRequired(true))
+        .setName("giveaway-reroll")
+        .setDescription("🎉 | Lose das Giveaway neu aus!")
+        .addStringOption(option => option.setName("id").setDescription("Setzte die ID des Giveaways ein! - Message ID").setRequired(true))
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     run: async (client, interaction) => {
         try {
@@ -17,12 +15,12 @@ module.exports = {
 
             await client.giveawayManager.reroll(giveawayId, {
                 messages: {
-                    congrat: "## Herzlichen Glückwunsch, {winners}!\n> **Melde dich via Discord- oder Web-Ticket um deinen Gewinn einzulösen!**",
+                    congrat: "## Herzlichen Glückwunsch, {winners}!\n> **Melde dich via Discord- oder Web-Ticket um deinen Gewinn einzulösen!**\n-# GIVEAWAY WURDE NEU AUSGELOST!",
                     error: "Nicht genug Teilnehmer!"
                 }
             });
 
-            await interaction.deferUpdate();
+            await interaction.reply({content:"## TICKET WURDE NEU AUSGELOST", ephemeral: true});
         } catch (err) {
             ERR(err, interaction)
         }

@@ -2,12 +2,12 @@ const { EmbedBuilder, PermissionFlagsBits } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const ms = require("ms");
 
-const GiveawayConfiguration = require("../Configurations/Giveaway.json");
+const GiveawayConfiguration = require("../../Configurations/Giveaway.json");
 const ERR = require("../../Utils/Console/Error");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("giveaway")
+        .setName("giveaway-create")
         .setDescription("🎉 | Erstelle ein Giveaway für deine Community!")
         .addStringOption(option => option.setName("runtime").setDescription("Setzte die Laufzeit des Giveaways!").setRequired(true))
         .addIntegerOption(option => option.setName("winners").setDescription("Setzte die Anzahl der möglichen Gewinner!").setRequired(true))
@@ -45,7 +45,7 @@ module.exports = {
                 }
             })
 
-            await interaction.deferUpdate();
+            await interaction.reply({content:"## TICKET WURDE GESTARTET", ephemeral: true});
         } catch (err) {
             ERR(err, interaction)
         }
