@@ -7,8 +7,8 @@ const ERR = require("../../Utils/Console/Error");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("giveaway")
-        .setDescription("🎉 | Erstelle ein Giveaway für deine Community!")
+        .setName("giveaway-reroll")
+        .setDescription("🎉 | Lose das Giveaway neu aus!")
         .addIntegerOption(option => option.setName("id").setDescription("Setzte die ID des Giveaways ein! - Message ID").setRequired(true))
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     run: async (client, interaction) => {
