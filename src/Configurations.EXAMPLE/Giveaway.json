@@ -1,0 +1,10 @@
+{
+    "embeds_theme": {
+        "embed_author_text": "SynHost.de | GIVEAWAY",
+        "embed_author_icon": "https://media.discordapp.net/attachments/1170393889484574750/1170661242923393034/DC.gif?ex=6559da3e&is=6547653e&hm=673832e813ea6160ce8ecab79bbd3334d893d32d1e3382689fa916674b760b22&=",
+        "embed_description": "%message%\n[Webseite](https://synhost.de/) | [Impressum](https://synhost.de/Impressum) | [Datenschutz](https://synhost.de/DSGVO) | [AGB](https://synhost.de/AGB)\nKontaktiere uns unter `Support@SynHost.de`!",
+        "embed_footer_text": "FAST LIKE A BOLT⚡️",
+        "embed_footer_icon": "https://media.discordapp.net/attachments/1170393889484574750/1170661242923393034/DC.gif?ex=6559da3e&is=6547653e&hm=673832e813ea6160ce8ecab79bbd3334d893d32d1e3382689fa916674b760b22&=",
+        "embed_color": "Yellow"
+    }
+}

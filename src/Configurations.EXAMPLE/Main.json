@@ -1,0 +1,21 @@
+{
+  "bot_token": "",
+  "bot_id": "",
+
+  "database_data": {
+    "host": "",
+    "port": 3306,
+    "user": "",
+    "password": "",
+    "database": ""
+  },
+
+  "error_embed_theme": {
+    "embed_author_text": "SynHost.de | ERROR",
+    "embed_author_icon": "https://media.discordapp.net/attachments/1170799164171489291/1292106316646584435/image.png?ex=67028748&is=670135c8&hm=88928d4086e5300ee1e9e0b70de5047359cc3d807e50973cc2e8e96ccf567fb1&=&format=webp&quality=lossless&width=160&height=160",
+    "embed_description": "## Hier ist etwas schief gelaufen!\nError: %error%\n\n[Webseite](https://synhost.de/) | [Impressum](https://synhost.de/Impressum) | [Datenschutz](https://synhost.de/DSGVO) | [AGB](https://synhost.de/AGB)\nKontaktiere uns unter `Support@SynHost.de`!",
+    "embed_footer_text": "FAST LIKE A BOLT⚡️",
+    "embed_footer_icon": "https://media.discordapp.net/attachments/1170799164171489291/1292106316646584435/image.png?ex=67028748&is=670135c8&hm=88928d4086e5300ee1e9e0b70de5047359cc3d807e50973cc2e8e96ccf567fb1&=&format=webp&quality=lossless&width=160&height=160",
+    "embed_color": "Red"
+  }
+}

@@ -1,5 +1,5 @@
 node_modules
-transcripts
+transcripts/
 .idea
-assets
 src/Configurations
+.git

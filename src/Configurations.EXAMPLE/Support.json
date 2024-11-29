@@ -1,0 +1,79 @@
+{
+    "embed_theme": {
+        "embed_author_text": "SynHost.de | SUPPORT",
+        "embed_author_icon": "https://media.discordapp.net/attachments/1170799164171489291/1292106316646584435/image.png?ex=67028748&is=670135c8&hm=88928d4086e5300ee1e9e0b70de5047359cc3d807e50973cc2e8e96ccf567fb1&=&format=webp&quality=lossless&width=160&height=160",
+        "embed_description": "%message%\n\n[Webseite](https://synhost.de/) | [Impressum](https://synhost.de/Impressum) | [Datenschutz](https://synhost.de/DSGVO) | [AGB](https://synhost.de/AGB)\nKontaktiere uns unter `Support@SynHost.de`!",
+        "embed_footer_text": "FAST LIKE A BOLT⚡️",
+        "embed_footer_icon": "https://media.discordapp.net/attachments/1170799164171489291/1292106316646584435/image.png?ex=67028748&is=670135c8&hm=88928d4086e5300ee1e9e0b70de5047359cc3d807e50973cc2e8e96ccf567fb1&=&format=webp&quality=lossless&width=160&height=160",
+        "embed_color": "Red"
+    },
+
+    "ticket_types": {
+        "helpInstallation": {
+            "CustomID": "helpInstallation",
+            "Name": "Hilfe bei Einrichtung",
+            "Emoji": "🆘",
+            "ButtonStyle": "Primary"
+        },
+        "requestAdvice": {
+            "CustomID": "requestAdvice",
+            "Name": "Anfrage/Beratung",
+            "Emoji": "🖥️",
+            "ButtonStyle": "Success"
+        },
+        "failure": {
+            "CustomID": "failure",
+            "Name": "Störung",
+            "Emoji": "✖️",
+            "ButtonStyle": "Danger"
+        },
+        "services": {
+            "CustomID": "services",
+            "Name": "Dienstleistungen",
+            "Emoji": "🤖",
+            "ButtonStyle": "Secondary"
+        },
+        "other": {
+            "CustomID": "other",
+            "Name": "Sonstiges",
+            "Emoji": "🎫",
+            "ButtonStyle": "Primary"
+        }
+    },
+
+    "team_roleId": "",
+    "team_channelId": "",
+    "ticket_categoryId": "",
+    "transcript_channelId": "",
+    "ticket_webViewURL": "",
+    "feedbackChannelId": "",
+
+    "support_waitingRoomId": "",
+    "support1_channelId": "",
+    "support2_channelId": "",
+    "support1_roleId": "",
+    "support2_roleId": "",
+
+    "psychiater_messages": [
+        "Selbst in den schwierigsten Momenten zeigt sich dein Können im Kundenservice. Du bist der Held, den unser Team braucht!",
+        "Jeder nervige Kunde ist eine Chance, einen echten Unterschied zu machen. Du bist nicht nur ein Problemlöser, sondern ein Kundenretter!",
+        "Dein Durchhaltevermögen ist beeindruckend. Auch die schwierigsten Situationen werden durch deine positive Einstellung gemeistert.",
+        "In der Ruhe liegt die Kraft. Du bewahrst einen kühlen Kopf, auch wenn es heiß hergeht – das zeichnet einen wahren Profi aus!",
+        "Denke daran, dass du nicht nur Probleme löst, sondern auch die Erwartungen deiner Kunden übertriffst. Du bist der Service-Superheld!",
+        "Herausforderungen sind nur Chancen in Verkleidung. Du nimmst sie an und zeigst, dass unser Kundenservice-Team unschlagbar ist!",
+        "Deine Professionalität ist bewundernswert. Auch in schwierigen Situationen strahlst du Kompetenz und Freundlichkeit aus.",
+        "Kunden, die Schwierigkeiten bringen, sind die besten Lehrer. Du lernst und wächst mit jeder Herausforderung, die du meisterst!",
+        "Nervige Kunden sind wie Gewitter. Sie kommen und gehen, aber du bleibst als strahlender Himmel bestehen. Du machst den Unterschied!",
+        "Mit deiner Geduld und Freundlichkeit zauberst du aus jedem Konflikt eine Chance zur Kundenbindung. Du bist ein Meister im Service!",
+        "Nicht jeder kann so souverän mit schwierigen Kunden umgehen wie du. Du bist nicht nur ein Kundendienstmitarbeiter, sondern ein Magier der Gelassenheit!",
+        "Durch dein Engagement machst du aus negativen Erfahrungen positive Erlebnisse. Du bist unser Geheimrezept für zufriedene Kunden!",
+        "Nervige Kunden sind wie Gewichte im Fitnessstudio. Sie machen dich stärker. Du wächst mit jeder Herausforderung und wirst unschlagbar!",
+        "Inmitten von Beschwerden und Frustrationen leuchtet deine Freundlichkeit wie ein Stern. Du machst aus jedem Kundenkontakt eine positive Erfahrung!",
+        "Ein echter Held kennt keine Müdigkeit. Auch wenn der Tag lang ist und die Kundenforderungen hoch, bleibst du unser unermüdlicher Service-Champion!",
+        "Jede Beschwerde ist eine Gelegenheit, einen Kunden in einen treuen Botschafter zu verwandeln. Du baust Brücken, wo andere auf Mauern stoßen!",
+        "Dein Einsatz ist wie ein Licht in der Dunkelheit der Kundenbeschwerden. Du machst den Kundenservice zu einer strahlenden Erfahrung für alle!",
+        "Nervige Kunden sind wie Puzzlestücke. Du findest die richtigen Verbindungen, um das Gesamtbild einer positiven Kundenerfahrung zu vervollständigen.",
+        "Deine Ausdauer im Kundenservice ist bewundernswert. Du lässt dich nicht entmutigen, sondern bist bereit, jeden Kundenwunsch zu erfüllen!",
+        "Du bist nicht nur ein Kundenservice-Mitarbeiter, sondern ein Problemlösungs-Experte. Du verwandelst Herausforderungen in Chancen und machst aus jedem Kontakt einen Erfolg!"
+    ]
+}
