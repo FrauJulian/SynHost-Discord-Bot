@@ -66,7 +66,7 @@ client.SlashData = [];
 
 RegisterCommands(client, "./src/SlashCommands");
 RegisterEvents(client, "./src/Events");
-
+/*
 process.on("unhandledRejection", (err) => {
   ERR(err);
 });
@@ -77,7 +77,7 @@ process.on("uncaughtException", (err) => {
 
 process.on("uncaughtExceptionMonitor", (err) => {
   ERR(err);
-});
+});*/
 
 module.exports = client;
 client.login(MainConfiguration.bot_token);

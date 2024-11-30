@@ -7,7 +7,7 @@ const {SlashCommandBuilder} = require("@discordjs/builders");
 
 const SupportConfiguration = require("../../Configurations/Support.json");
 const ERR = require("../../Utils/Console/Error");
-const CustomButtonBuilder = require("../../Utils/CustomBuilders/CustomButtonBuilder");
+const CustomButtonBuilder = require("../../Utils/CustomBuilders/CustomButtonBuilders/CustomButtonBuilder");
 const SupportEmbedBuilder = require("../../Utils/CustomBuilders/EmbedBuilders/SupportEmbedBuilder");
 const RunSQL = require("../../Utils/Database/Core/RunSQL");
 const TicketData = require("../../Utils/Database/Features/Ticket/TicketData");

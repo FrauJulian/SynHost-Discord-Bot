@@ -5,7 +5,7 @@ const {
 
 const SupportConfiguration = require("../../../../Configurations/Support.json");
 const ERR = require("../../../../Utils/Console/Error");
-const CustomButtonBuilder = require("../../../../Utils/CustomBuilders/CustomButtonBuilder");
+const CustomButtonBuilder = require("../../../../Utils/CustomBuilders/CustomButtonBuilders/CustomButtonBuilder");
 const SupportEmbedBuilder = require("../../../../Utils/CustomBuilders/EmbedBuilders/SupportEmbedBuilder");
 const TicketData = require("../../../../Utils/Database/Features/Ticket/TicketData");
 const UpdateTicket = require("../../../../Utils/Database/Features/Ticket/UpdateTicket");

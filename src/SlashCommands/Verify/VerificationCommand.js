@@ -7,7 +7,7 @@ const {SlashCommandBuilder} = require("@discordjs/builders");
 const VerificationConfiguration = require("../../Configurations/Verification.json");
 const ERR = require("../../Utils/Console/Error");
 const RunSQL = require("../../Utils/Database/Core/RunSQL");
-const CustomButtonBuilder = require("../../Utils/CustomBuilders/CustomButtonBuilder");
+const CustomButtonBuilder = require("../../Utils/CustomBuilders/CustomButtonBuilders/CustomButtonBuilder");
 const SupportEmbedBuilder = require("../../Utils/CustomBuilders/EmbedBuilders/SupportEmbedBuilder");
 const VerificationEmbedBuilder = require("../../Utils/CustomBuilders/EmbedBuilders/VerificationEmbedBuilder");
 

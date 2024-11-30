@@ -1,0 +1,109 @@
+{
+  "calendar": {
+    "1": {
+      "code": "",
+      "use": ""
+    },
+    "2": {
+      "code": "",
+      "use": ""
+    },
+    "3": {
+      "code": "",
+      "use": ""
+    },
+    "4": {
+      "code": "",
+      "use": ""
+    },
+    "5": {
+      "code": "",
+      "use": ""
+    },
+    "6": {
+      "code": "",
+      "use": ""
+    },
+    "7": {
+      "code": "",
+      "use": ""
+    },
+    "8": {
+      "code": "",
+      "use": ""
+    },
+    "9": {
+      "code": "",
+      "use": ""
+    },
+    "10": {
+      "code": "",
+      "use": ""
+    },
+    "11": {
+      "code": "",
+      "use": ""
+    },
+    "12": {
+      "code": "",
+      "use": ""
+    },
+    "13": {
+      "code": "",
+      "use": ""
+    },
+    "14": {
+      "code": "",
+      "use": ""
+    },
+    "15": {
+      "code": "",
+      "use": ""
+    },
+    "16": {
+      "code": "",
+      "use": ""
+    },
+    "17": {
+      "code": "",
+      "use": ""
+    },
+    "18": {
+      "code": "",
+      "use": ""
+    },
+    "19": {
+      "code": "",
+      "use": ""
+    },
+    "20": {
+      "code": "",
+      "use": ""
+    },
+    "21": {
+      "code": "",
+      "use": ""
+    },
+    "22": {
+      "code": "",
+      "use": ""
+    },
+    "23": {
+      "code": "",
+      "use": ""
+    },
+    "24": {
+      "code": "",
+      "use": ""
+    }
+  },
+
+  "embed_theme": {
+    "embed_author_text": "SynHost.de | ADVENT",
+    "embed_author_icon": "https://media.discordapp.net/attachments/1170799164171489291/1292106316646584435/image.png?ex=67028748&is=670135c8&hm=88928d4086e5300ee1e9e0b70de5047359cc3d807e50973cc2e8e96ccf567fb1&=&format=webp&quality=lossless&width=160&height=160",
+    "embed_description": "%message%\n\n[Webseite](https://synhost.de/) | [Impressum](https://synhost.de/Impressum) | [Datenschutz](https://synhost.de/DSGVO) | [AGB](https://synhost.de/AGB)\nKontaktiere uns unter `Support@SynHost.de`!",
+    "embed_footer_text": "FAST LIKE A BOLT⚡️",
+    "embed_footer_icon": "https://media.discordapp.net/attachments/1170799164171489291/1292106316646584435/image.png?ex=67028748&is=670135c8&hm=88928d4086e5300ee1e9e0b70de5047359cc3d807e50973cc2e8e96ccf567fb1&=&format=webp&quality=lossless&width=160&height=160",
+    "embed_color": "Green"
+  }
+}
