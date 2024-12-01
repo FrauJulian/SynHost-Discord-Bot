@@ -16,17 +16,17 @@ module.exports = {
 
                 let splitCustomId = interaction.customId.split('-');
 
-                let success = splitCustomId[1] === "t";
+                let success = splitCustomId[1] === "1";
                 let key = splitCustomId[2];
 
                 let code = AdventConfiguration.calendar[key].code;
                 let use = AdventConfiguration.calendar[key].use;
 
                 let adventMessage;
-                if (success === true) {
+                if (success) {
                     adventMessage = await AdventEmbedBuilder(`## Der Code für das ${key} Türchen ist \`${code}\`!\n Mit diesem Code bekommst du **${use}**!\n\n-# Dieser Code gilt nur am gleichen Tag von 00:00 bis 23:59 Uhr!`);
                 } else {
-                    adventMessage = await AdventEmbedBuilder(`## Der Advent ist vorbei!`);
+                    adventMessage = await AdventEmbedBuilder(`## Falsches Türchen!`);
                 }
 
                 interaction.reply({embeds: [adventMessage], ephemeral: true});

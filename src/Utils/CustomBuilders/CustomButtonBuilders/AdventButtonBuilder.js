@@ -2,27 +2,21 @@ const {ButtonBuilder, ButtonStyle} = require("discord.js");
 
 async function AdventButtonBuilder(key) {
     let date = new Date();
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
+    let day = new Date(date.toLocaleString("en-US", { timeZone: "Europe/Berlin" })).getDate();
+    let month = new Date(date.toLocaleString("en-US", { timeZone: "Europe/Berlin" })).getMonth() + 1;
 
-    if (month === 12) {
-        if (key === day) {
-            return new ButtonBuilder()
-            .setCustomId(`advent-t-${key}`)
-            .setLabel(key.toString())
+    if (month === 12 &&
+        key === day.toString()) {
+        return new ButtonBuilder()
+            .setCustomId(`advent-1-${key}`)
+            .setLabel(key)
             .setEmoji("🎄")
-            .setStyle(ButtonStyle.Success)
-        } else {
-            return new ButtonBuilder()
-            .setCustomId(`advent-f-${key}`)
-            .setLabel(key.toString())
-            .setStyle(ButtonStyle.Primary)
-        }
+            .setStyle(ButtonStyle.Success);
     } else {
         return new ButtonBuilder()
-            .setCustomId(`advent-f-${key}`)
-            .setLabel(key.toString())
-            .setStyle(ButtonStyle.Danger)
+            .setCustomId(`advent-0-${key}`)
+            .setLabel(key)
+            .setStyle(ButtonStyle.Primary);
     }
 }
 
